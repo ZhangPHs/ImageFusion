@@ -27,14 +27,14 @@ function Img = Gauss(Image, flag)
     % 进行滤波操作
     % 进行行滤波,tmpImage_E用于存放中间结果
     tmpImage_E = zeros(M + 4, N+4);
-    for i=3:M-2
-        for j=3:N-2
+    for i=3:M+2
+        for j=3:N+2
             tmpImage_E(i,j) = Image_E(i,j-2:j+2) * kernel'; 
         end
     end
     % 用得到的中间结果tmpImage_E，进行列向滤波
-    for j=3:N-2
-        for i=3:M-2
+    for j=3:N+2
+        for i=3:M+2
             Image_E(i,j) = kernel * tmpImage_E(i-2:i+2,j); 
         end
     end
